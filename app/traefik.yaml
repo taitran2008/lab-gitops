@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: traefik
+    repoURL: https://traefik.github.io/charts
+    targetRevision: "39.0.6"        # verify with: helm search repo traefik/traefik --versions
+    helm:
+      releaseName: traefik
+      values: |
+        providers:
+          kubernetesGateway:
+            enabled: true
+        gateway:
+          listeners:
+            web:
+              namespacePolicy:
+                from: All
+        service:
+          type: ClusterIP
+        logs:
+          access:
+            enabled: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
+  syncPolicy:
+    automated: { selfHeal: true, prune: true }
+    syncOptions: [ CreateNamespace=true ]
