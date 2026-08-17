@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-html
+  namespace: lab
+data:
+  index.html: |
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hello World</title>
+        <style>
+          body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #0f172a;
+            color: #e2e8f0;
+          }
+          main { text-align: center; }
+          h1 { font-size: 3rem; margin: 0 0 0.5rem; }
+          p { color: #94a3b8; margin: 0.25rem 0; }
+          code { color: #38bdf8; }
+        </style>
+      </head>
+      <body>
+        <main>
+          <h1>Hello World</h1>
+          <p>Served from k3d &rarr; Traefik Gateway API &rarr; Cloudflare Tunnel.</p>
+          <p><code>hello.aiworkery.com</code></p>
+        </main>
+      </body>
+    </html>
