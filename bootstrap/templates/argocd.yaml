@@ -10,7 +10,7 @@ spec:
   source:
     chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 9.3.5          # pin explicitly; check current with helm search
+    targetRevision: 10.3.3         # pin explicitly; check current with: helm search repo argo/argo-cd --versions
     helm:
       releaseName: argocd
       values: |
