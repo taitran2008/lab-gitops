@@ -17,6 +17,10 @@ spec:
         global:
           revisionHistoryLimit: 1
         configs:
+          cm:
+            # Public URL, used for generated links and SSO redirects.
+            # The route itself lives in argocd-route/, not here.
+            url: https://argocd.aiworkery.com
           params:
             server.insecure: true
             log.level: debug
