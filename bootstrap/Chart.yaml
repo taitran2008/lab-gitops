@@ -1,0 +1,5 @@
+apiVersion: v2
+name: lab-bootstrap
+description: Bootstrap chart - installed by hand exactly once. Everything else pulls itself in.
+type: application
+version: 1.0.0
